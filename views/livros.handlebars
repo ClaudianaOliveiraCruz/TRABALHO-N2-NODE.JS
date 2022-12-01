@@ -1,9 +1,12 @@
-<br><br><br><br>
+<br>
+<h1 style="text-align: center;">Livros Cadastrados</h1>
+
 {{#each lista}}
 
 <div class="card">
 
     <form action="/livros" method="POST">
+
     <input name="id" type="hidden"  value="{{id_book}}" >
     <br>
         <label id="icon"><i class="fa fa-book"></i>  Titulo do livro:</label>
