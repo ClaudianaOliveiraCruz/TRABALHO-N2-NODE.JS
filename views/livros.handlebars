@@ -1,0 +1,26 @@
+<br><br><br><br>
+{{#each lista}}
+
+<div class="card">
+
+    <form action="/livros" method="POST">
+    <input name="id" type="hidden"  value="{{id_book}}" >
+    <br>
+        <label id="icon"><i class="fa fa-book"></i>  Titulo do livro:</label>
+        <input name="titulo" type="text"  value="{{titulo_book}}">
+    <br>
+        <label id="icon"><i class="fa fa-file-text-o"></i>  Número de páginas:</label>
+        <input name="page" type="number"  value="{{pagina_book}}">
+
+        <div class = "btn">
+        <input name="editar" type="submit" value="Editar">
+        </div>
+        <div class = "btn">
+        <input name="excluir" type="submit" value="Excluir">
+        </div>
+        
+    <br>
+    </form>
+
+</div><br><br>
+{{/each}}
