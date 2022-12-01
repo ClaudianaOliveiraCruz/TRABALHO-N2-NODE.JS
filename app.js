@@ -66,6 +66,7 @@ if (cadastrar) {
     if (err) {
         console.log(err);
     }
+    res.render("book");
     });
 }
 
