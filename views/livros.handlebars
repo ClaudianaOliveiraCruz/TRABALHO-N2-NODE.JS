@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylelogin">
+  <link rel="stylesheet" href="stylemenu">
+
+	
+</head>
+<body>
+	
+	<div class="container">
+		<div class="container-login">
+			<div class="wrap-login">
+
+        <span class="login-form-title">
+						Livros Cadastrados
+        </span>
+
+        {{#each lista}}
+
+				<form class="login-form" action="/updatelivro" method="POST">
+
+        
+						<input class="input-form" type="hidden" name="id_livro" autocomplete="off" value="{{id_livro}}">
+
+          <div class="wrap-input margin-top-35 margin-bottom-35">
+            <label for="autor">Autor:</label>
+						<input class="input-form" type="text" name="autor" autocomplete="off" value="{{autor}}">
+					</div>
+				
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+            <label for="titulo">Titulo:</label>
+						<input class="input-form" type="text" name="titulo" autocomplete="off" value="{{titulo}}">
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+            <label for="sinopse">Sinopse:</label>
+						<input class="input-form" type="text" name="sinopse" autocomplete="off" value="{{sinopse}}">
+						
+					</div>
+
+          <div class="wrap-input margin-top-35 margin-bottom-35">
+            <label for="pagina">Páginas:</label>
+						<input class="input-form" type="number" name="pagina" autocomplete="off" value="{{paginas}}">
+						
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+                    <label for="genero">Gênero:</label>
+
+                        <select name="genero" id="genero">
+                        <option value="{{genero}}">{{genero}}</option> 
+                        <option value="Ação">Ação</option>
+                        <option value="Aventura">Aventura</option>
+                        <option value="Comedia">Comedia</option>
+                        <option value="Conto">Conto</option>
+                        <option value="Crônica">Crônica</option>
+                        <option value="Drabs, Drabble, Droubble (Minicontos)">Drabs, Drabble, Droubble (Minicontos)</option>
+                        <option value="Drama / Tragédia">Drama / Tragédia</option>
+                        <option value="Epopeia (Épico)">Epopeia (Épico)</option>
+                        <option value="Esporte">Esporte</option>
+                        <option value="Fábula">Fábula</option>
+                        <option value="Família">Família</option>
+                        <option value="Fantasia">Fantasia</option>
+                        <option value="Ficção">Ficção</option>
+                        <option value="Ficção Adolescente">Ficção Adolescente</option>
+                        <option value="Ficção Científica / SciFi">Ficção Científica / SciFi</option>
+                        <option value="Magia/Misticismo">Magia/Misticismo</option>
+                        <option value="Mistério">Mistério</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Suspense">Suspense</option>
+                        <option value="Terror">Terror</option>
+                        </select>
+					
+                </div>
+
+					<div class="container-login-form-btn">
+            <input name="editarlivro" type="submit" class="login-form-btn" value="Editar Livro">
+					</div><br>
+          <div class="container-login-form-btn">
+            <input name="excluirlivro" type="submit" class="login-form-btn" value="Excluir Livro">
+					</div>
+				</form><br>
+        {{/each}}
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		let inputs = document.getElementsByClassName('input-form');
+		for (let input of inputs) {
+			input.addEventListener("blur", function() {
+				if(input.value.trim() != ""){
+					input.classList.add("has-val");
+				} else {
+					input.classList.remove("has-val");
+				}
+			});
+		}
+	</script>
+
+</body>
+</html>

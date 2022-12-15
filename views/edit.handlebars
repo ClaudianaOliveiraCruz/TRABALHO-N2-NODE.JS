@@ -1,0 +1,92 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylelogin">
+  <link rel="stylesheet" href="stylemenu">
+
+	
+</head>
+<body>
+	{{#each lista}}
+
+  <nav>
+  <label for="id-show-menu" class="show-menu">
+    <div class="nav-icon">
+      <i class="fa fa-navicon"></i>
+    </div>
+  </label>
+  <input type="checkbox" id="id-show-menu" class="checkbox-menu" role="button">
+  <div class="menu-block">
+    <ul class="navUL">
+      <li><a href="telaInicial">Home</a></li>
+      <li><a href="edituser">Editar Seus Dados</a></li>
+			<li><a href="cad-livro">Cadastrar Livro</a></li>
+			<li><a href="visulivro" target="_blank">Livros Cadastrados</a></li>
+			<li><a href="sair">Sair</a></li>
+      
+      </li>
+    </ul>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="container-login">
+			<div class="wrap-login">
+				<form class="login-form" action="/update" method="POST">
+
+					<span class="login-form-title">
+						Edite seus Dados
+					</span>
+
+          
+						<input class="input-form" type="hidden" name="id_book" autocomplete="off" value="{{id_book}}">
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<label for="nome_usuario">Nome Usuário:</label>
+						<input class="input-form" type="text" name="nome_usuario" autocomplete="off" value="{{nome_usuario}}">
+						
+					</div>
+
+					<div class="wrap-input margin-top-35 margin-bottom-35">
+						<label for="email">Email:</label>
+						<input class="input-form" type="text" name="email" autocomplete="off" value="{{email}}">
+						
+					</div>
+
+					<div class="wrap-input margin-bottom-35">
+						<label for="senha">Senha:</label>
+						<input class="input-form" type="password" name="senha" value="{{senha}}">
+						
+					</div>
+
+					<div class="container-login-form-btn">
+            <input name="editar" type="submit" class="login-form-btn" value="Editar">
+					</div><br>
+          <div class="container-login-form-btn">
+            <input name="excluir" type="submit" class="login-form-btn" value="Excluir">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		let inputs = document.getElementsByClassName('input-form');
+		for (let input of inputs) {
+			input.addEventListener("blur", function() {
+				if(input.value.trim() != ""){
+					input.classList.add("has-val");
+				} else {
+					input.classList.remove("has-val");
+				}
+			});
+		}
+	</script>
+{{/each}}
+</body>
+</html>
